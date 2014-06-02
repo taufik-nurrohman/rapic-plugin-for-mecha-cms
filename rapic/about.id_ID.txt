@@ -1,0 +1,9 @@
+Title: RAPIC: Random Ad Position in Content
+Author: Taufik Nurrohman
+Version: 1.0.0
+
+====
+
+> Secara otomatis menempatkan iklan di dalam konten artikel dan halaman.
+
+Plugin ini akan secara otomatis menyisipkan kode iklan ke dalam konten artikel dan halaman statis dengan posisi acak di antara paragraf yang ada.

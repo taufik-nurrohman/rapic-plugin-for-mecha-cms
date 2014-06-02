@@ -1,0 +1,8 @@
+a:2:{s:7:"ad_code";s:178:"<div class="ad-group cf p">
+  <div class="ad-item pull-left">Your ad code goes here&hellip;</div>
+  <div class="ad-item pull-right">Your ad code goes here&hellip;</div>
+</div>";s:6:"ad_css";s:78:".ad-item {
+  width:300px;
+  height:250px;
+  background-color:whitesmoke;
+}";}

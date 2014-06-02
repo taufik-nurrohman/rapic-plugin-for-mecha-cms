@@ -1,0 +1,2 @@
+plugin_rapic_title_ad_code: Ad Code
+plugin_rapic_title_ad_css: <abbr title="Cascade Style Sheet">CSS</abbr>
