@@ -10,10 +10,17 @@ Config::merge('speak', Text::toArray(File::open($language)->read()));
 
 function random_ad_position_in_article_and_page_content($content) {
     global $ad_config;
-    $paragraphs = explode('</p>', $content);
-    $paragraphs[array_rand($paragraphs)] .= '</p>' . $ad_config['ad_code'] . '[end_ad_code]';
-    $content = implode('</p>', $paragraphs);
-    return str_replace(array('[end_ad_code]</p>', '[end_ad_code]'), "", $content);
+    $paragraph = preg_split('#<\/p>#', $content, null, PREG_SPLIT_NO_EMPTY);
+    $random_index = array_rand($paragraph);
+    $output = "";
+    for($i = 0, $count = count($paragraph); $i < $count; ++$i) {
+        if($i == $random_index) {
+            $output .= $paragraph[$i] . '</p>' . $ad_config['ad_code'];
+        } else {
+            $output .= $paragraph[$i] . '</p>';
+        }
+    }
+    return preg_replace('#(<\/(div|dl|figure|h[1-6]|ol|p|pre|table|ul)>)<\/p>#', '$1', $output);
 }
 
 Filter::add('article:content', 'random_ad_position_in_article_and_page_content');
