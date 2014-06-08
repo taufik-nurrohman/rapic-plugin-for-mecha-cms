@@ -3,13 +3,13 @@
   <label class="grid-group">
     <span class="grid span-1 form-label"><?php echo $speak->plugin_rapic_title_ad_code; ?></span>
     <span class="grid span-5">
-      <textarea name="ad_code" class="input-block"><?php echo $_config['ad_code']; ?></textarea>
+      <textarea name="ad_code" class="input-block"><?php echo Text::parse($_config['ad_code'])->to_encoded_html; ?></textarea>
     </span>
   </label>
   <label class="grid-group">
     <span class="grid span-1 form-label"><?php echo $speak->plugin_rapic_title_ad_css; ?></span>
     <span class="grid span-5">
-      <textarea name="ad_css" class="input-block"><?php echo $_config['ad_css']; ?></textarea>
+      <textarea name="ad_css" class="input-block"><?php echo Text::parse($_config['ad_css'])->to_encoded_html; ?></textarea>
     </span>
   </label>
   <div class="grid-group">
