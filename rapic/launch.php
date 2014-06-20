@@ -31,11 +31,9 @@ Weapon::add('shell_after', function() use($ad_config) {
 });
 
 Route::accept($config->manager->slug . '/plugin/rapic/update', function() use($config, $speak) {
-
     if( ! Guardian::happy()) {
         Shield::abort();
     }
-
     if($request = Request::post()) {
         Guardian::checkToken($request['token']);
         unset($request['token']); // Remove token from request array
@@ -43,5 +41,4 @@ Route::accept($config->manager->slug . '/plugin/rapic/update', function() use($c
         Notify::success(Config::speak('notify_success_updated', array($speak->plugin)));
         Guardian::kick(dirname($config->url_current));
     }
-
 });

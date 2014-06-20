@@ -4,6 +4,6 @@ Version: 1.0.1
 
 ====
 
-> Secara otomatis menempatkan iklan ke dalam konten artikel dan halaman.
+> Secara otomatis menempatkan iklan di dalam konten artikel dan halaman.
 
 Plugin ini akan secara otomatis menyisipkan kode iklan ke dalam konten artikel dan halaman statis dengan posisi acak di antara paragraf yang ada.
