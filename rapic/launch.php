@@ -1,6 +1,6 @@
 <?php
 
-$ad_config = unserialize(File::open(PLUGIN . DS . 'rapic' . DS . 'states' . DS . 'config.txt')->read());
+$ad_config = File::open(PLUGIN . DS . 'rapic' . DS . 'states' . DS . 'config.txt')->unserialize();
 
 function random_ad_position_in_article_and_page_content($content) {
     global $ad_config;
