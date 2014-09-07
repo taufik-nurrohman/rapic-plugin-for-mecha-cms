@@ -1,28 +1,30 @@
 <?php
 
-$ad_config = File::open(PLUGIN . DS . 'rapic' . DS . 'states' . DS . 'config.txt')->unserialize();
+// Load the configuration file
+$rapic_config = File::open(PLUGIN . DS . 'rapic' . DS . 'states' . DS . 'config.txt')->unserialize();
 
-function random_ad_position_in_article_and_page_content($content) {
-    global $ad_config;
-    $paragraph = preg_split('#<\/p>#', $content, null, PREG_SPLIT_NO_EMPTY);
-    $random_index = array_rand($paragraph);
-    $output = "";
-    for($i = 0, $count = count($paragraph); $i < $count; ++$i) {
-        if($i == $random_index) {
-            $output .= $paragraph[$i] . '</p>' . $ad_config['ad_code'];
-        } else {
-            $output .= $paragraph[$i] . '</p>';
-        }
-    }
-    return preg_replace('#(<\/(div|dl|figure|h[1-6]|ol|p|pre|table|ul)>)<\/p>#', '$1', $output);
+// The random ad position function
+function do_random_ad_position_in_article_and_page_content($content) {
+    global $rapic_config;
+    $paragraph = explode('</p>', $content);
+    array_splice($paragraph, array_rand($paragraph), 0, $rapic_config['ad_code'] . '<rapic:end>');
+    $paragraph = implode('</p>', $paragraph);
+    return str_replace(array('<rapic:end></p>', '<rapic:end>'), "", $paragraph);
 }
 
-Filter::add('article:content', 'random_ad_position_in_article_and_page_content');
-Filter::add('page:content', 'random_ad_position_in_article_and_page_content');
+// Register the filter
+Filter::add('article:content', 'do_random_ad_position_in_article_and_page_content');
+Filter::add('page:content', 'do_random_ad_position_in_article_and_page_content');
 
-Weapon::add('shell_after', function() use($ad_config) {
-    echo '<style>' . $ad_config['ad_css'] . '</style>';
+Weapon::add('shell_after', function() use($rapic_config) {
+    echo '<style>' . $rapic_config['ad_css'] . '</style>';
 });
+
+
+/**
+ * Plugin Updater
+ * --------------
+ */
 
 Route::accept($config->manager->slug . '/plugin/rapic/update', function() use($config, $speak) {
     if( ! Guardian::happy()) {
