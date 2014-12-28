@@ -1,4 +1,4 @@
-<form class="form-plugin" action="<?php $rapic_config = File::open(PLUGIN . DS . 'rapic' . DS . 'states' . DS . 'config.txt')->unserialize(); echo $config->url_current; ?>/update" method="post">
+<form class="form-plugin" action="<?php $rapic_config = File::open(PLUGIN . DS . basename(__DIR__) . DS . 'states' . DS . 'config.txt')->unserialize(); echo $config->url_current; ?>/update" method="post">
   <input name="token" type="hidden" value="<?php echo $token; ?>">
   <label class="grid-group">
     <span class="grid span-1 form-label"><?php echo $speak->plugin_rapic_title_ad_code; ?></span>

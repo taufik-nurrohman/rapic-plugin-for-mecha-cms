@@ -1,10 +1,10 @@
 Title: RAPIC: Random Ad Position in Content
 Author: Taufik Nurrohman
 URL: http://latitudu.com
-Version: 1.0.4
+Version: 1.0.5
 
 ====
 
-> Automatically places your ads randomly within the content of the articles and pages.
+> Automatically places your ads randomly within the content of the articles and static pages.
 
-This plugin will automatically insert your ad code into the article and page content with random position between the existing paragraphs.
+This plugin will automatically insert your ad code into the article and static page content with random position between the existing paragraphs.
