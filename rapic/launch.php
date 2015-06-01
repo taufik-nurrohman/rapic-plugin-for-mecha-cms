@@ -16,25 +16,7 @@ function do_random_ad_position_in_article_and_page_content($content) {
 Filter::add('article:content', 'do_random_ad_position_in_article_and_page_content');
 Filter::add('page:content', 'do_random_ad_position_in_article_and_page_content');
 
-Weapon::add('shell_after', function() use($rapic_config) {
-    echo '<style>' . $rapic_config['ad_css'] . '</style>';
-});
-
-
-/**
- * Plugin Updater
- * --------------
- */
-
-Route::accept($config->manager->slug . '/plugin/' . basename(__DIR__) . '/update', function() use($config, $speak) {
-    if( ! Guardian::happy()) {
-        Shield::abort();
-    }
-    if($request = Request::post()) {
-        Guardian::checkToken($request['token']);
-        unset($request['token']); // Remove token from request array
-        File::serialize($request)->saveTo(PLUGIN . DS . basename(__DIR__) . DS . 'states' . DS . 'config.txt');
-        Notify::success(Config::speak('notify_success_updated', array($speak->plugin)));
-        Guardian::kick(dirname($config->url_current));
-    }
+// Include the CSS
+Weapon::add('shell_after', function() use($config, $rapic_config) {
+    echo O_BEGIN . '<style>' . ($config->html_minifier ? Converter::detractShell($rapic_config['ad_css']) : NL . $rapic_config['ad_css'] . NL) . '</style>' . O_END;
 });
