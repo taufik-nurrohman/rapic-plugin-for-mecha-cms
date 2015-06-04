@@ -1,2 +1,3 @@
 plugin_rapic_title_ad_code: Ad Code
 plugin_rapic_title_ad_css: <abbr title="Cascading Style Sheet">CSS</abbr>
+plugin_rapic_title_ad_disable: Disable Ad
