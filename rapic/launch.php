@@ -1,7 +1,7 @@
 <?php
 
 // Load the configuration data
-$rapic_config = File::open(PLUGIN . DS . basename(__DIR__) . DS . 'states' . DS . 'config.txt')->unserialize();
+$rapic_config = File::open(PLUGIN . DS . File::B(__DIR__) . DS . 'states' . DS . 'config.txt')->unserialize();
 
 // The random ad position function
 function do_random_ad_position($content) {
