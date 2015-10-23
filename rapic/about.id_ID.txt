@@ -1,7 +1,7 @@
 Title: RAPIC: Random Ad Position in Content
 Author: Taufik Nurrohman
 URL: http://latitudu.com
-Version: 1.2.0
+Version: 1.2.1
 
 ====
 
