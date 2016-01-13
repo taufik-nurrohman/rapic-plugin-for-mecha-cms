@@ -1,4 +1,4 @@
-a:2:{s:7:"ad_code";s:198:"<div class="ad-group cf p">
+a:2:{s:4:"html";s:198:"<div class="ad-group cf p">
   <div class="ad-item pull-left">
 
     Your first ad code goes here…
@@ -9,7 +9,7 @@ a:2:{s:7:"ad_code";s:198:"<div class="ad-group cf p">
     Your second ad code goes here…
 
   </div>
-</div>";s:6:"ad_css";s:70:".ad-item {
+</div>";s:3:"css";s:70:".ad-item {
   width:300px;
   height:250px;
   background-color:silver;
